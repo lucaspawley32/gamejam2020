@@ -11,6 +11,11 @@ public class CameraController : MonoBehaviour
 	private float rotSpeed;	//Speed of Camera Rotation
 	float rotationX;
 	float rotationY;
+
+	[SerializeField]
+	float minTilt;
+	[SerializeField]
+	float maxTilt;
     
 	//Okay, so what is the first thing I need to do for the camera?
 		// 1. Mouse LR, UD to turn camera, and also rotate player.
@@ -27,7 +32,7 @@ public class CameraController : MonoBehaviour
 		rotationX += x * rotSpeed * Time.deltaTime;
 		rotationY -= y * rotSpeed * Time.deltaTime;
 
-		rotationY = Mathf.Clamp(rotationY, -30.0f, 60.0f);
+		rotationY = Mathf.Clamp(rotationY, minTilt, maxTilt);
 		
 		transform.rotation = Quaternion.Euler(rotationY, rotationX, 0.0f);
 		player.transform.rotation = Quaternion.Euler(0.0f, rotationX, 0.0f);
