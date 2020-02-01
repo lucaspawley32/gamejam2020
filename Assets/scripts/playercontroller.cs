@@ -5,6 +5,7 @@ using UnityEngine;
 public class playercontroller : MonoBehaviour
 {
     public CharacterController characterController;
+    public GameObject player;
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
@@ -15,6 +16,8 @@ public class playercontroller : MonoBehaviour
     void Start()
     {
       characterController = GetComponent<CharacterController>();
+      Cursor.visible = false;
+      Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -24,13 +27,13 @@ public class playercontroller : MonoBehaviour
           //we are grounded, so recalculate
           //move direction directly from Axes
 
-          moveDirection = new Vector3(Input.GetAxis("Horizontal"),0.0f,Input.GetAxis("Vertical"));
+          moveDirection = player.transform.right * Input.GetAxis("Horizontal") + player.transform.forward * Input.GetAxis("Vertical");
           moveDirection *= speed;
-
           if(Input.GetButton("Jump")){
             moveDirection.y = jumpSpeed;
           }
         }
+
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
