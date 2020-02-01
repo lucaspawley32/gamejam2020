@@ -1,0 +1,15 @@
+Collection Based Progession
+	- Bring a childhood photo to it's original place to progress kinda deal.
+
+Buttons
+Pick Up Items
+Weight Triggers
+
+Drag Items
+	Crates that can be dragged around & shit
+	
+Destructible Items
+	Blocks with Limited Uses
+	
+Repaired Doors
+	Drag a chunk of door to this location and it snaps into place
