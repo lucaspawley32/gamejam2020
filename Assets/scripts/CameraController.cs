@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
 		// How to access mouse movement?
 		float x = Input.GetAxis("Mouse X");
 		float y = Input.GetAxis("Mouse Y");
-
+		
 		rot.x += x * rotSpeed * Time.deltaTime;
 		rot.y -= y * rotSpeed * Time.deltaTime;
 
