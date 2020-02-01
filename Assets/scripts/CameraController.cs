@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
 	[SerializeField]
 	float minTilt=-80.0f;
 	[SerializeField]
-	float maxTilt=60.0f;cene
+	float maxTilt=60.0f;
     
 	//Okay, so what is the first thing I need to do for the camera?
 		// 1. Mouse LR, UD to turn camera, and also rotate player.
