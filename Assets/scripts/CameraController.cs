@@ -26,8 +26,11 @@ public class CameraController : MonoBehaviour
 		
 		rotationX += x * rotSpeed * Time.deltaTime;
 		rotationY -= y * rotSpeed * Time.deltaTime;
+
+		rotationY = Mathf.Clamp(rotationY, -30.0f, 60.0f);
 		
 		transform.rotation = Quaternion.Euler(rotationY, rotationX, 0.0f);
+		player.transform.rotation = Quaternion.Euler(0.0f, rotationX, 0.0f);
 
     }
 }
