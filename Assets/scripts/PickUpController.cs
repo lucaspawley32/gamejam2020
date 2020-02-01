@@ -11,7 +11,7 @@ public class PickUpController : MonoBehaviour
 	[SerializeField]
 	GameObject holder;
     // Start is called before the first frame update
-	
+
     void Start()
     {
         isHeld = false;
@@ -33,5 +33,8 @@ public class PickUpController : MonoBehaviour
 	{
 		holder = this.gameObject;
 		isHeld = false;
+	}
+	void update(){
+		if(transform.position.y < 0) transform.position = new Vector3(transform.position.x,0,transform.position.z);
 	}
 }
