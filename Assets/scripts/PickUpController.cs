@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PickUpController : MonoBehaviour
 {
 	[SerializeField]
 	private bool isHeld;
-	[SerializeField]
-	private float heldDist;
-	[SerializeField]
-	GameObject holder;
+
+	Rigidbody _rb;
     // Start is called before the first frame update
+
+	/// <summary>
+	/// Awake is called when the script instance is being loaded.
+	/// </summary>
+	void Awake()
+	{
+		_rb = GetComponent<Rigidbody>();
+	}
 
     void Start()
     {
         isHeld = false;
-		holder = this.gameObject;
     }
 
 	public bool IsHeld()
@@ -23,18 +29,19 @@ public class PickUpController : MonoBehaviour
 		return isHeld;
 	}
 
-	public void SetHolder(GameObject other)
+	public void PickUp()
 	{
-		holder = other;
+		_rb.useGravity=false;
 		isHeld = true;
+
 	}
 
 	public void Drop()
 	{
-		holder = this.gameObject;
+		_rb.useGravity=true;
 		isHeld = false;
 	}
-	void update(){
+	void Update(){
 		if(transform.position.y < 0) transform.position = new Vector3(transform.position.x,0,transform.position.z);
 	}
 }

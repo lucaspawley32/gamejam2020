@@ -49,10 +49,15 @@ public class playercontroller : MonoBehaviour
         if(objectInHand == null){
           if(Physics.Raycast(player.transform.position, Camera.transform.forward, out hit, maxPickupDistance) && hit.collider.gameObject.tag == "PickUp"){
             objectInHand = hit.collider.gameObject;
+			//Set objectInHand variables
+			if (objectInHand.GetComponent<PickUpController>())
+				objectInHand.GetComponent<PickUpController>().PickUp();
           }
 
         }else{
-          objectInHand = null;
+			if (objectInHand.GetComponent<PickUpController>())
+				objectInHand.GetComponent<PickUpController>().Drop();
+        	objectInHand = null;
         }
       }
 
