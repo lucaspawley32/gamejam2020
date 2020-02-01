@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject player;	//Reference to player object
+	[SerializeField]
+	private float _headHeight=0.5f;	//Speed of Camera Rotation
 
 	[SerializeField]
 	private float rotSpeed=150.0f;	//Speed of Camera Rotation
@@ -28,7 +30,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position;
+        transform.position = player.transform.position + player.transform.up  * _headHeight;
 
 		// How to access mouse movement?
 		float x = Input.GetAxis("Mouse X");

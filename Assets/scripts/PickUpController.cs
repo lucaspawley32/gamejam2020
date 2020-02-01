@@ -2,36 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(InteractableRenderController))]
 public class PickUpController : MonoBehaviour
 {
 	[SerializeField]
-	private bool isHeld;
-	[SerializeField]
-	private float heldDist;
-	[SerializeField]
-	GameObject holder;
-    // Start is called before the first frame update
+	private bool _isHeld; 
+	private float _pickUpDist;
+	private GameObject _holder;
+
+	private InteractableRenderController _interacRenderer;
 	
+	/// <summary>
+	/// Awake is called when the script instance is being loaded.
+	/// </summary>
+	void Awake()
+	{
+		_interacRenderer = GetComponent<InteractableRenderController>();
+	}
+
     void Start()
     {
-        isHeld = false;
-		holder = this.gameObject;
+        _isHeld = false;
+		_holder = this.gameObject;
+		_pickUpDist = _interacRenderer.GetInteractDistance();
+		_interacRenderer.SetStartColor(Color.green);
     }
+	
 
 	public bool IsHeld()
 	{
-		return isHeld;
+		return _isHeld;
 	}
 
 	public void SetHolder(GameObject other)
 	{
-		holder = other;
-		isHeld = true;
+		_holder = other;
+		_isHeld = true;
 	}
 
 	public void Drop()
 	{
-		holder = this.gameObject;
-		isHeld = false;
+		_holder = this.gameObject;
+		_isHeld = false;
+	}
+
+	public float GetPickUpDist()
+	{
+		return _pickUpDist;
 	}
 }
