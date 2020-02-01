@@ -15,7 +15,11 @@ public class CameraController : MonoBehaviour
 	float minTilt=-80.0f;
 	[SerializeField]
 	float maxTilt=60.0f;
-	private void Start()
+    
+	//Okay, so what is the first thing I need to do for the camera?
+	// 1. Mouse LR, UD to turn camera, and also rotate player.
+    
+	private void Start() 
 	{
 		rot = new Vector2(0.0f, 0.0f);
 		player = GameObject.Find("Player");
