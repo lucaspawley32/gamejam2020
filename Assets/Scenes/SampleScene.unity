@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   minTilt: -80
   maxTilt: 60
   player: {fileID: 1382100837}
-  Camera: {fileID: 963194225}
+  Camera: {fileID: 963194227}
   speed: 6
   jumpSpeed: 8
   gravity: 20
