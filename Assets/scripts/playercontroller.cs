@@ -15,7 +15,8 @@ public class playercontroller : MonoBehaviour
     public GameObject player;
     public Camera Camera;
     private GameObject objectInHand;
-
+    private float walkSpeed = 6.0f;
+    private float sprintSpeed = 9.0f;
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
@@ -55,7 +56,23 @@ public class playercontroller : MonoBehaviour
         }
       }
 
-
+      //check if player is sprinting
+      if(Input.GetKey(KeyCode.LeftShift)){
+        Debug.Log("Shift!");
+        if(speed < sprintSpeed){
+          speed = speed + 1.0f;
+          if(speed > sprintSpeed){
+            speed = sprintSpeed;
+          }
+        }
+      }else{
+        if(speed > walkSpeed){
+          speed = speed - 1.0f;
+          if(speed < walkSpeed){
+            speed = sprintSpeed;
+          }
+        }
+      }
       //movement
         if(characterController.isGrounded){
           //we are grounded, so recalculate
@@ -71,7 +88,7 @@ public class playercontroller : MonoBehaviour
 
         //movement of objects in Hand
         if(objectInHand != null){
-          objectInHand.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z)+player.transform.forward*1.5f;
+          objectInHand.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + Camera.transform.forward.y * 1.5f, player.transform.position.z)+player.transform.forward*1.5f;
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
