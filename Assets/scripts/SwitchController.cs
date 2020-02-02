@@ -13,6 +13,9 @@ public class SwitchController : PuzzleObject
 	private void Start()
 	{
 		_renderer = GetComponent<Renderer>();
+		Shader shader = Shader.Find("Custom/SwitchShader");
+		if (shader != null)
+			_renderer.material.shader = shader;
 		_renderer.material.SetColor("_StartColor", Color.blue);
 		_renderer.material.SetColor("_EndColor", Color.red);
 	}

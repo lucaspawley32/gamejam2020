@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startColor: {r: 1, g: 1, b: 0, a: 0}
   _endColor: {r: 0, g: 1, b: 0, a: 0}
-  _interactDist: 2.5
+  _interactDist: 2.25
   _intensityBase: 0.25
   _intensityFlex: 0.25
 --- !u!114 &3159713650117774855

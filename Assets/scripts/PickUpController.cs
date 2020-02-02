@@ -8,10 +8,12 @@ using UnityEngine;
 public class PickUpController : MonoBehaviour
 {
 	[SerializeField]
-	private bool isHeld;
+	private bool _isHeld;
 	
 	Rigidbody _rb;
 	private InteractableRenderController _interacRenderer;
+
+	private Transform _target;
     // Start is called before the first frame update
 
 	/// <summary>
@@ -26,29 +28,35 @@ public class PickUpController : MonoBehaviour
     void Start()
     {
         _isHeld = false;
-		_holder = this.gameObject;
-		_pickUpDist = _interacRenderer.GetInteractDistance();
 		_interacRenderer.SetStartColor(Color.green);
     }
-	
 
 	public bool IsHeld()
 	{
 		return _isHeld;
 	}
 
-	public void PickUp()
+	public void PickUp(Transform target)
 	{
 		_rb.useGravity=false;
-		isHeld = true;
+		_rb.isKinematic = true;
+		_isHeld = true;
+		_target = target;
+
+		transform.SetParent(target);
+		transform.position = target.position + target.forward * 1.5f + target.up * -0.25f + target.right * -0.25f;
+
+		_interacRenderer.SetAwake(false);
 	}
 
 	public void Drop()
 	{
 		_rb.useGravity=true;
-		isHeld = false;
-	}
-	void Update(){
-		if(transform.position.y < 0) transform.position = new Vector3(transform.position.x,0,transform.position.z);
+		_rb.isKinematic = false;
+		_isHeld = false;
+		_target = null;
+		transform.SetParent(null);
+		
+		_interacRenderer.SetAwake(true);
 	}
 }
