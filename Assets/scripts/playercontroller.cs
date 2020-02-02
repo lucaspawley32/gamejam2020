@@ -5,8 +5,7 @@ using UnityEngine;
 public class playercontroller : MonoBehaviour
 {
     public CharacterController characterController;
-
-
+    
     [SerializeField]
   	float minTilt=-80.0f;
   	[SerializeField]
@@ -21,7 +20,7 @@ public class playercontroller : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
-    private float maxPickupDistance = 2.0f;
+    private float maxPickupDistance = 2.5f;
     private float pickupCooldown = 0.5f;
     private float lastPickupTime = 0;
 
@@ -41,15 +40,16 @@ public class playercontroller : MonoBehaviour
     {
       RaycastHit hit;
       //check if the raycast is hitting anything and if it can be picked up
+		Debug.DrawRay(Camera.transform.position - Camera.transform.up * .01f, Camera.transform.forward * maxPickupDistance, Color.red);
       if(Input.GetMouseButton(0) && Time.time > lastPickupTime+pickupCooldown){
           lastPickupTime = Time.time;
           //check if there is no object in hand, and pick it up.
         if(objectInHand == null){
-          if(Physics.Raycast(player.transform.position, Camera.transform.forward, out hit, maxPickupDistance) && hit.collider.gameObject.tag == "PickUp"){
+          if(Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, maxPickupDistance) && hit.collider.gameObject.tag == "PickUp"){
             objectInHand = hit.collider.gameObject;
 			//Set objectInHand variables
 			if (objectInHand.GetComponent<PickUpController>())
-				objectInHand.GetComponent<PickUpController>().PickUp();
+				objectInHand.GetComponent<PickUpController>().PickUp(Camera.transform);
           }
 
         }else{
@@ -76,7 +76,6 @@ public class playercontroller : MonoBehaviour
           }
         }
       }
-      //movement
         if(characterController.isGrounded){
           //we are grounded, so recalculate
           //move direction directly from Axes
@@ -86,11 +85,6 @@ public class playercontroller : MonoBehaviour
           if(Input.GetButton("Jump")){
             moveDirection.y = jumpSpeed;
           }
-        }
-
-        //movement of objects in Hand
-        if(objectInHand != null){
-          objectInHand.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + Camera.transform.forward.y * 1.5f, player.transform.position.z)+player.transform.forward*1.5f;
         }
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
