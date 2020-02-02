@@ -58,16 +58,7 @@ public class GUIController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                if (Time.timeScale == 1)
-                {
-                    Time.timeScale = 0;
-                    showPaused();
-                }
-                else if (Time.timeScale == 0)
-                {
-                    Time.timeScale = 1;
-                    hidePaused();
-                }
+				pauseControl();
             }
             if(!fade)
             {
@@ -78,6 +69,7 @@ public class GUIController : MonoBehaviour
 
     public void pauseControl()
     {
+		Debug.Log("Fuck");
         if (Time.timeScale == 1)
         {
             Time.timeScale = 0;
@@ -87,7 +79,9 @@ public class GUIController : MonoBehaviour
         }
         else if (Time.timeScale == 0)
         {
+			Debug.Log("A");
             Time.timeScale = 1;
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             hidePaused();
         }

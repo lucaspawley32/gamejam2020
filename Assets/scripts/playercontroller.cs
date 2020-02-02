@@ -45,11 +45,18 @@ public class playercontroller : MonoBehaviour
           lastPickupTime = Time.time;
           //check if there is no object in hand, and pick it up.
         if(objectInHand == null){
-          if(Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, maxPickupDistance) && hit.collider.gameObject.tag == "PickUp"){
-            objectInHand = hit.collider.gameObject;
-			//Set objectInHand variables
-			if (objectInHand.GetComponent<PickUpController>())
-				objectInHand.GetComponent<PickUpController>().PickUp(Camera.transform);
+          if(Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, maxPickupDistance)){
+			  if (hit.collider.gameObject.tag == "PickUp")
+			  {
+            	objectInHand = hit.collider.gameObject;
+				//Set objectInHand variables
+				if (objectInHand.GetComponent<PickUpController>())
+					objectInHand.GetComponent<PickUpController>().PickUp(Camera.transform);
+			  }
+			  else if (hit.collider.gameObject.tag == "Button")
+			  {
+				hit.collider.gameObject.GetComponent<ButtonController>().Press();
+			  }
           }
 
         }else{
