@@ -5,7 +5,7 @@ using UnityEngine;
 public class playercontroller : MonoBehaviour
 {
     public CharacterController characterController;
-	
+    
     [SerializeField]
   	float minTilt=-80.0f;
   	[SerializeField]
@@ -88,7 +88,6 @@ public class playercontroller : MonoBehaviour
             moveDirection.y = jumpSpeed;
           }
         }
-		
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
