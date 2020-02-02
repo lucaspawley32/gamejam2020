@@ -6,10 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(InteractableRenderController))]
 public class PressureController : PuzzleObject
 {
-	//store: 
-	/*	Weight needed to trigger
-			Could use abstraction, check if object covering middle has one of a certain set of tags
-	 */
 	
 	private InteractableRenderController _interacRenderer;
 	
