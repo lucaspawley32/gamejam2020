@@ -5,6 +5,7 @@ using UnityEngine;
 public class playercontroller : MonoBehaviour
 {
     public CharacterController characterController;
+	
     [SerializeField]
   	float minTilt=-80.0f;
   	[SerializeField]

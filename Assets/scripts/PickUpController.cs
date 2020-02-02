@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(InteractableRenderController))]
 public class PickUpController : MonoBehaviour
@@ -12,7 +13,6 @@ public class PickUpController : MonoBehaviour
 	Rigidbody _rb;
 	Transform _target;
 	private InteractableRenderController _interacRenderer;
-
 	/// <summary>
 	/// Awake is called when the script instance is being loaded.
 	/// </summary>
