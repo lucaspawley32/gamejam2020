@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1036279062139334418}
   - component: {fileID: 1036279062139334417}
   - component: {fileID: 1036279062139334416}
-  - component: {fileID: 1036279062139334636}
   - component: {fileID: 1036279062139334637}
+  - component: {fileID: 7865943659048271865}
   m_Layer: 0
   m_Name: SwitchCube
   m_TagString: Untagged
@@ -95,19 +95,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1036279062139334636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036279062139334423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fc0e0336eeaf784691805c1bb7404e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 0
 --- !u!54 &1036279062139334637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,3 +111,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7865943659048271865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036279062139334423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc0e0336eeaf784691805c1bb7404e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _active: 0
+  transitionSpeed: 2.5
