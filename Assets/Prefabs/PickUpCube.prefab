@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6765866654178434124}
   - component: {fileID: 6765866654178434125}
   - component: {fileID: 6765866654178434114}
-  - component: {fileID: 6765866654178434127}
   - component: {fileID: 6765866654178434121}
   - component: {fileID: 6765866654178434120}
   - component: {fileID: 6238135858056799613}
+  - component: {fileID: 6265037946342685964}
   m_Layer: 0
   m_Name: PickUpCube
   m_TagString: PickUp
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6765866654178434127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6765866654178434112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65fefd180e5974c2497a8007084e7aac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isHeld: 0
 --- !u!54 &6765866654178434121
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +129,16 @@ MonoBehaviour:
   _interactDist: 2.25
   _intensityBase: 0.25
   _intensityFlex: 0.25
+--- !u!114 &6265037946342685964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765866654178434112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2284134fbe45703459a08e54d5abb2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isHeld: 0
