@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
 	float minTilt=-80.0f;
 	[SerializeField]
 	float maxTilt=60.0f;
-
+  
 	private void Start() 
 	{
 		rot = new Vector2(0.0f, 0.0f);

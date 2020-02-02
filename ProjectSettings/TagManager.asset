@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PickUp
+  - ShowOnPause
+  - ShowOnStart
   layers:
   - Default
   - TransparentFX
