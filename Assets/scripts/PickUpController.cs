@@ -33,7 +33,6 @@ public class PickUpController : MonoBehaviour
 	{
 		_rb.useGravity=false;
 		isHeld = true;
-
 	}
 
 	public void Drop()
